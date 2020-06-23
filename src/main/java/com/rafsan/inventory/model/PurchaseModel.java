@@ -10,6 +10,8 @@ import org.hibernate.Session;
 
 public class PurchaseModel implements PurchaseDao {
 
+
+
     private static Session session;
     
     @Override
@@ -60,8 +62,8 @@ public class PurchaseModel implements PurchaseDao {
     public void deletePurchase(Purchase purchase) {
         session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Purchase p = session.get(Purchase.class, purchase.getId());
-        session.delete(p);
+        Purchase pur = session.get(Purchase.class, purchase.getId());
+        session.delete(pur);
         session.getTransaction().commit();
     }
     
